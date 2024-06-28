@@ -2,18 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "app.js",
+      "src": "./app.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "app.js"
+      "dest": "/"
     }
-  ],
-  "env": {
-    "MONGODB_URI": "mongodb+srv://<username>:<password>@cluster0.5bip30q.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
-    "SESSION_SECRET": "secrect"
-  }
+  ]
 }
