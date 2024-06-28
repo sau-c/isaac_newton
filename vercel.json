@@ -1,12 +1,17 @@
 {
-    "builds": [
-      {
-        "src": "app.js",
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      { "src": "/server/(.*)", "dest": "/server/routes/$1" },
-      { "src": "/(.*)", "dest": "/app.js" }
-    ]
+  "builds": [
+    {
+      "src": "app.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/server/(.*)", "dest": "/server/$1" },
+    { "src": "/public/(.*)", "dest": "/public/$1" },
+    { "src": "/(.*)", "dest": "/app.js" }
+  ],
+  "env": {
+    "MONGODB_URI": "mongodb+srv://sau:FREN86ub3VzcQxXH@cluster0.5bip30q.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    "SESSION_SECRET": "secret"
   }
+}
