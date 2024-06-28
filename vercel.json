@@ -1,5 +1,4 @@
 {
-  "version": 2,
   "builds": [
     {
       "src": "app.js",
@@ -7,9 +6,7 @@
     }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app.js"
-    }
+    { "src": "/server/(.*)", "dest": "/server/routes/$1" },
+    { "src": "/(.*)", "dest": "/app.js" }
   ]
 }
