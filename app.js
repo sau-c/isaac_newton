@@ -25,7 +25,7 @@ app.use(express.static('public'));
 
 // Configuración de sesión con connect-mongo
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'secret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   store: MongoStore.create({
@@ -46,7 +46,7 @@ app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 
 // Routes
-app.use('/', require('./server/routes/customer.js'))
+app.use('/', require('./server/routes/customer'))
 
 // Handle 404
 app.get('*', (req, res) => {

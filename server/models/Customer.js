@@ -20,7 +20,7 @@ const CustomerSchema = new Schema({
   },
   details: {
     type: String,
-    required: true
+    required: false
   },
   createdAt: {
     type: Date,
