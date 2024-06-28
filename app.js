@@ -30,6 +30,7 @@ app.use(
     secret: process.env.SESSION_SECRET || 'secret',
     resave: false,
     saveUninitialized: true,
+    //store adios
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI,
       ttl: 1 * 24 * 60 * 60 // 14 days
