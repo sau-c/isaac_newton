@@ -23,23 +23,19 @@ app.use(methodOverride('_method'));
 // Static Files
 app.use(express.static('public'));
 
-// Express Session
-app.use(
-  session({
-    //solo secret
-    secret: process.env.SESSION_SECRET || 'secret',
-    resave: false,
-    saveUninitialized: true,
-    //store adios
-    store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI,
-      ttl: 1 * 24 * 60 * 60 // 14 days
-    }),
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
-    }
-  })
-);
+// Configuración de sesión con connect-mongo
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'secret',
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI,
+    ttl: 1 * 24 * 60 * 60 // 1 día en segundos (opcional)
+  }),
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7 // 1 semana en milisegundos
+  }
+}));
 
 // Flash Messages
 app.use(flash({ sessionKeyName: 'flashMessage' }));
