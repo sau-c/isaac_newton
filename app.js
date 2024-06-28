@@ -3,18 +3,12 @@ require('dotenv').config();
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
 const methodOverride = require('method-override');
-
-// npm uninstall express-flash-message
-//const { flash } = require('express-flash-message');
-
-// npm install connect-flash
 const flash = require('connect-flash');
-
 const session = require('express-session');
 const connectDB = require('./server/config/db');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 // Connect to Database  
 connectDB();
