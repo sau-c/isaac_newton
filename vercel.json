@@ -6,7 +6,7 @@
       }
     ],
     "routes": [
-      { "src": "/server/(.*)", "dest": "/server/routes/$1" },
+      { "src": "/(.*)", "dest": "/server/routes/$1" },
       { "src": "/(.*)", "dest": "/app.js" }
     ]
   }
