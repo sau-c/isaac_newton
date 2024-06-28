@@ -5,6 +5,9 @@ const expressLayout = require('express-ejs-layouts');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
+//
+const MongoStore = require('connect-mongo');
+//
 const connectDB = require('./server/config/db');
 
 const app = express();
@@ -23,9 +26,14 @@ app.use(express.static('public'));
 // Express Session
 app.use(
   session({
-    secret: 'secret',
+    //solo secret
+    secret: process.env.SESSION_SECRET || 'secret',
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+      ttl: 1 * 24 * 60 * 60 // 14 days
+    }),
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
     }
