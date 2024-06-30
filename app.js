@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 
 // Static Files
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public'))); // Asegurarse de que la ruta sea absoluta
 
 // Configuración de sesión con connect-mongo
 app.use(session({
@@ -43,8 +43,9 @@ app.use(flash({ sessionKeyName: 'flashMessage' }));
 
 // Templating Engine
 app.use(expressLayout);
-app.set('layout', './layouts/main');
+app.set('views', path.join(__dirname, 'views')); // Configurar directorio de vistas
 app.set('view engine', 'ejs');
+app.set('layout', './layouts/main');
 
 // Routes
 app.use('/', require('./server/routes/customer'))
