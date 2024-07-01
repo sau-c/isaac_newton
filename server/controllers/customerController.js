@@ -166,6 +166,7 @@ exports.editPost = async (req, res) => {
 exports.deleteCustomer = async (req, res) => {
   try {
     await Customer.deleteOne({ _id: req.params.id });
+    await req.flash("info", "Eliminado exitosamente.");
     res.redirect("/");
   } catch (error) {
     console.log(error);
