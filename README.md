@@ -24,13 +24,19 @@ $ npm start
 
 ## Resumen del Proyecto
 
-El objetivo inicial del proyecto era desarrollar una página web completa que integrara todas las vistas necesarias para la gestión de usuarios, administradores y alumnos. Sin embargo, durante el proceso de desarrollo, surgieron varios problemas al intentar enlazar la base de datos, lo que nos obligó a migrar a nuevas vistas y a un nuevo repositorio. A continuación, se detallan los desafíos enfrentados, las soluciones implementadas y las conclusiones obtenidas.
+El objetivo inicial del proyecto era desarrollar una página web completa que integrara todas las vistas necesarias para la gestión de administradores y alumnos. Sin embargo, durante el proceso de desarrollo, surgieron varios problemas al intentar enlazar la base de datos, lo que nos obligó a migrar a nuevas vistas y a un nuevo repositorio. A continuación, se detallan los desafíos enfrentados, las soluciones implementadas y las conclusiones obtenidas.
+
+## Las contraseñas se guardan en HASH con el authController.js
+
+## Actualmente hay un usuario "admin" con contraseña "admin" de prueba
+
+## Se válida cuando los usuarios o contraseñas ya existen o son incorrectos
 
 ## Desarrollo del Proyecto
 
 ### Fase 1: Desarrollo Inicial
 
-- *Descripción*: Se desarrollaron todas las vistas de la página web, incluyendo las funcionalidades para usuarios, administradores y alumnos.
+- *Descripción*: Se desarrollaron todas las vistas de la página web, incluyendo las funcionalidades para usuarios administradores.
 - *Problemas*: Al intentar enlazar la base de datos, surgieron múltiples problemas que impidieron la correcta integración de los datos.
 - *Solución*: Se decidió migrar a nuevas vistas y a un nuevo repositorio para resolver los problemas de enlace con la base de datos.
 
@@ -69,9 +75,5 @@ El objetivo inicial del proyecto era desarrollar una página web completa que in
 1. *Pruebas Exhaustivas*: Realizar pruebas exhaustivas en entornos locales y de producción para identificar problemas antes del despliegue.
 2. *Documentación*: Mantener una documentación detallada de cada fase del proyecto para facilitar futuras migraciones y resoluciones de problemas.
 3. *Monitoreo*: Implementar herramientas de monitoreo para detectar y solucionar problemas en tiempo real una vez desplegado el proyecto.
-
-## Agradecimientos
-
-Agradecemos a todo el equipo de desarrollo por su dedicación y esfuerzo para superar los desafíos y entregar un producto de alta calidad. También agradecemos a nuestros usuarios y clientes por su paciencia y feedback durante el proceso de desarrollo.
 
 ---
