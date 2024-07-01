@@ -12,8 +12,8 @@ exports.homepage = async (req, res) => {
   const messages = await req.flash("info");
 
   const locals = {
-    title: "NodeJs",
-    description: "Free NodeJs User Management System",
+    title: "Secundaria Isaac Newton",
+    description: "Sistema de manejo de estudiantes",
   };
 
   let perPage = 12;
@@ -39,20 +39,6 @@ exports.homepage = async (req, res) => {
     console.log(error);
   }
 };
-// exports.homepage = async (req, res) => {
-//     const messages = await req.consumeFlash('info');
-//     const locals = {
-//       title: 'NodeJs',
-//       description: 'Free NodeJs User Management System'
-//     }
-
-//     try {
-//       const customers = await Customer.find({}).limit(22);
-//       res.render('index', { locals, messages, customers } );
-//     } catch (error) {
-//       console.log(error);
-//     }
-// }
 
 /**
  * GET /
@@ -60,8 +46,8 @@ exports.homepage = async (req, res) => {
  */
 exports.about = async (req, res) => {
   const locals = {
-    title: "About",
-    description: "Free NodeJs User Management System",
+    title: "Sobre nosotros",
+    description: "Nuestra mision es formar futuros lideres",
   };
 
   try {
@@ -77,8 +63,8 @@ exports.about = async (req, res) => {
  */
 exports.addCustomer = async (req, res) => {
   const locals = {
-    title: "Add New Customer - NodeJs",
-    description: "Free NodeJs User Management System",
+    title: "Agregar estudiante",
+    description: "Agregar estudiante",
   };
 
   res.render("customer/add", locals);
@@ -101,7 +87,7 @@ exports.postCustomer = async (req, res) => {
 
   try {
     await Customer.create(newCustomer);
-    await req.flash("info", "New customer has been added.");
+    await req.flash("info", "El estudiante añadido exitosamente.");
 
     res.redirect("/");
   } catch (error) {
@@ -118,8 +104,8 @@ exports.view = async (req, res) => {
     const customer = await Customer.findOne({ _id: req.params.id });
 
     const locals = {
-      title: "View Customer Data",
-      description: "Free NodeJs User Management System",
+      title: "Estudiantes",
+      description: "Estudiantes registrados",
     };
 
     res.render("customer/view", {
@@ -140,8 +126,8 @@ exports.edit = async (req, res) => {
     const customer = await Customer.findOne({ _id: req.params.id });
 
     const locals = {
-      title: "Edit Customer Data",
-      description: "Free NodeJs User Management System",
+      title: "Editar estudiante",
+      description: "Editar estudiante",
     };
 
     res.render("customer/edit", {
@@ -167,9 +153,9 @@ exports.editPost = async (req, res) => {
       details: req.body.details,
       updatedAt: Date.now(),
     });
-    await res.redirect(`/edit/${req.params.id}`);
+    await res.redirect("/");
 
-    console.log("redirected");
+    console.log("Estudiante actualizado");
   } catch (error) {
     console.log(error);
   }
@@ -194,8 +180,8 @@ exports.deleteCustomer = async (req, res) => {
  */
 exports.searchCustomers = async (req, res) => {
   const locals = {
-    title: "Search Customer Data",
-    description: "Free NodeJs User Management System",
+    title: "Buscar estudiantes",
+    description: "Buscar estudiantes",
   };
 
   try {
