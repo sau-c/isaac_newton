@@ -6,11 +6,11 @@ const mongoose = require("mongoose");
  * Homepage
  */
 exports.homepage = async (req, res) => {
+
   // Remove
   // const messages = await req.consumeFlash('info');
   // Use this instead
   const messages = await req.flash("info");
-
   const locals = {
     title: "Secundaria Isaac Newton",
     description: "Sistema de manejo de estudiantes",

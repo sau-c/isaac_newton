@@ -51,13 +51,11 @@ app.set('view engine', 'ejs');
 app.set('layout', './layouts/main');
 
 // Routes
-app.use('/customers', require('./server/routes/customer'))
 app.use('/', require('./server/routes/auth')); // Add auth routes
+app.use('/', require('./server/routes/customer'))
 
-// principal
-app.get('/', (req, res) => {
-  res.redirect('/register');
-});
+
+
 
 // Handle 404
 app.get('*', (req, res) => {
