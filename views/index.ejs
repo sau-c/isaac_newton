@@ -2,7 +2,7 @@
   <h1 class="h2">Administrar estudiantes</h1>
   <div class="btn-toolbar mb-2 mb-md 0">
     <div class="btn-group me-2">
-      <a href="/add" class="btn btn-sm btn-outline-secondary">+ Nuevo estudiante</a>
+      <a href="/add" class="btn btn btn-success">+ Agregar</a>
     </div>
   </div>
 </div>
@@ -13,8 +13,6 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 <% }) %>
-
-
 
 <div class="table-responsive">
 
@@ -38,21 +36,24 @@
 
             <div class="d-flex flex-row justify-content-end gap-2">
 
-              <a href="/view/<%= element._id %>" type="button" class="btn btn-primary btn-small">
+              <a href="/view/<%= element._id %>" type="button" class="btn btn-primary btn-small" title="Ver">
                 <i class="bi bi-eye"></i>
               </a>
 
-              <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
+              <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small" title="Editar">
                 <i class="bi bi-pencil"></i>
               </a>
 
-              <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative">
+              <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative" title="Eliminar">
                 <button type="submit" class="btn btn-danger btn-small">
-                  <i class="bi bi-person-x"></i>
+                  <i class="bi bi-x"></i>
                 </button>
               </form>
 
             </div>
+
+
+            
 
 
           </td>

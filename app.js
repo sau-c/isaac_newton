@@ -29,7 +29,7 @@ app.use(session({
   saveUninitialized: true,
   store: MongoStore.create({
     mongoUrl: process.env.MONGODB_URI,
-    ttl: 1 * 24 * 60 * 60 // 1 día en segundos (opcional)
+    ttl: 60 // 1 día en segundos (opcional)
   }),
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 // 1 dia en milisegundos
