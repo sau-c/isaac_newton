@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const passport = require('passport'); // Import passport
 const connectDB = require('./server/config/db');
 const path = require('path');
 
@@ -36,6 +37,10 @@ app.use(session({
   }
 }));
 
+// Initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Flash Messages
 app.use(flash({ sessionKeyName: 'flashMessage' }));
 
@@ -46,7 +51,13 @@ app.set('view engine', 'ejs');
 app.set('layout', './layouts/main');
 
 // Routes
-app.use('/', require('./server/routes/customer'))
+app.use('/customers', require('./server/routes/customer'))
+app.use('/', require('./server/routes/auth')); // Add auth routes
+
+// principal
+app.get('/', (req, res) => {
+  res.redirect('/register');
+});
 
 // Handle 404
 app.get('*', (req, res) => {
