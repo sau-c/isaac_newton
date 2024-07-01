@@ -5,9 +5,7 @@ const expressLayout = require('express-ejs-layouts');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
-//
 const MongoStore = require('connect-mongo');
-//
 const connectDB = require('./server/config/db');
 const path = require('path');
 
@@ -34,7 +32,7 @@ app.use(session({
     ttl: 1 * 24 * 60 * 60 // 1 día en segundos (opcional)
   }),
   cookie: {
-    maxAge: 1000 * 60 * 60 * 24 * 7 // 1 semana en milisegundos
+    maxAge: 1000 * 60 * 60 * 24 // 1 dia en milisegundos
   }
 }));
 

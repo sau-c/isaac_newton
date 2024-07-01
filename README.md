@@ -8,6 +8,8 @@ Crea un archivo .env para almacenar tus credenciales. Ejemplo a continuación:
 
 ```
 MONGODB_URI = mongodb+srv://<username>:<password>@mongodburlhere
+PORT = <puerto>
+SESSION_SECRET = <secrect>
 ```
 
 ## Instalación
