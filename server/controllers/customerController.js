@@ -88,7 +88,6 @@ exports.postCustomer = async (req, res) => {
   try {
     await Customer.create(newCustomer);
     await req.flash("info", "Agregado exitosamente.");
-
     res.redirect("/");
   } catch (error) {
     console.log(error);
@@ -153,9 +152,8 @@ exports.editPost = async (req, res) => {
       details: req.body.details,
       updatedAt: Date.now(),
     });
+    await req.flash("info", "Actualizado exitosamente.");
     await res.redirect("/");
-
-    console.log("Estudiante actualizado");
   } catch (error) {
     console.log(error);
   }
