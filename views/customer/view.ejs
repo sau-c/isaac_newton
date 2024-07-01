@@ -14,13 +14,13 @@
     <div class="col">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="/">Administrar estudiantes</a></li>
           <li class="breadcrumb-item active"><%= customer.firstName  %></li>
         </ol>
       </nav>
     </div>
     <div class="col text-end fw-lighter">
-      <b>Last Updated <%= new Date(customer.updatedAt).toUTCString() %> </b>
+      <b>Ultima actualizacion: <%= new Date(customer.updatedAt).toUTCString() %> </b>
       <b>UserId:</b> <%= customer._id %>
     </div>
   </div>
@@ -31,14 +31,14 @@
 
   <li class="list-group-item"> 
     <div class="row">
-      <div class="col" style="max-width: 140px"> <b>Name:</b></div>
+      <div class="col" style="max-width: 140px"> <b>Nombre:</b></div>
       <div class="col"><%= customer.firstName %> <%= customer.lastName %></div>
     </div>
   </li>
 
   <li class="list-group-item"> 
     <div class="row">
-      <div class="col" style="max-width: 140px"> <b>Tel:</b></div>
+      <div class="col" style="max-width: 140px"> <b>Telefono:</b></div>
       <div class="col"><%= customer.tel %></div>
     </div>
   </li>
@@ -52,21 +52,21 @@
 
   <li class="list-group-item"> 
     <div class="row">
-      <div class="col" style="max-width: 140px"> <b>Details:</b></div>
+      <div class="col" style="max-width: 140px"> <b>Detalles:</b></div>
       <div class="col"><%= customer.details %></div>
     </div>
   </li>
 
   <li class="list-group-item"> 
     <div class="row">
-      <div class="col" style="max-width: 140px"> <b>Date Created:</b></div>
+      <div class="col" style="max-width: 140px"> <b>Creacion:</b></div>
       <div class="col"><%= customer.createdAt %></div>
     </div>
   </li>
 
   <li class="list-group-item"> 
     <div class="row">
-      <div class="col" style="max-width: 140px"> <b>Date Modified:</b></div>
+      <div class="col" style="max-width: 140px"> <b>Modificado:</b></div>
       <div class="col"><%= customer.updatedAt %></div>
     </div>
   </li>
