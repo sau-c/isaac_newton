@@ -44,23 +44,42 @@
                 <i class="bi bi-pencil"></i>
               </a>
 
-              <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative" title="Eliminar">
-                <button type="submit" class="btn btn-danger btn-small">
-                  <i class="bi bi-x"></i>
-                </button>
-              </form>
+              <!-- Button to trigger modal -->
+              <button type="button" class="btn btn-danger btn-small" data-bs-toggle="modal" data-bs-target="#deleteModal<%= element._id %>">
+                <i class="bi bi-x"></i>
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" tabindex="-1" role="dialog" id="deleteModal<%= element._id %>">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <div class="modal-title">ELIMINAR</div>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>
+                        Estas a punto de borrar toda la informacion de <b class="fw-bold"><%= element.firstName %> <%= element.lastName %></b><br/>
+                        ¿Deseas continuar?
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative">
+                        <button type="submit" class="btn btn-danger">Si, eliminar</button>
+                      </form>
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
             </div>
-
-
           </td>
         </tr>
       <% }) %>
     </tbody>
   </table>
 </div>
-
-
 
 <% if (customers.length > 0) { %>
   <nav aria-label="Dashboard Pagination">
@@ -97,4 +116,3 @@
     </ul>
   </nav>
 <% } %>
-
