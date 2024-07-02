@@ -52,7 +52,7 @@ exports.registerPost = async (req, res) => {
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       await req.flash('error', 'Usuario ya existe');
-      return res.redirect('/register');
+      return res.redirect('/');
     }
 
     const user = new User({ username, password });
@@ -60,7 +60,7 @@ exports.registerPost = async (req, res) => {
     res.redirect('/login');
   } catch (err) {
     await req.flash('error', 'Error registrando usuario');
-    res.redirect('/register');
+    res.redirect('/');
   }
 };
 
@@ -68,7 +68,6 @@ exports.logout = (req, res) => {
   req.logout();
   res.redirect('/');
 };
-
 
 
 
@@ -159,7 +158,7 @@ exports.postCustomer = async (req, res) => {
   try {
     await Customer.create(newCustomer);
     await req.flash("info", "Agregado exitosamente.");
-    res.redirect("/");
+    res.redirect("/customers");
   } catch (error) {
     console.log(error);
   }
@@ -224,7 +223,7 @@ exports.editPost = async (req, res) => {
       updatedAt: Date.now(),
     });
     await req.flash("info", "Actualizado exitosamente.");
-    await res.redirect("/");
+    await res.redirect("/customers");
   } catch (error) {
     console.log(error);
   }
@@ -238,7 +237,7 @@ exports.deleteCustomer = async (req, res) => {
   try {
     await Customer.deleteOne({ _id: req.params.id });
     await req.flash("info", "Eliminado exitosamente.");
-    res.redirect("/");
+    res.redirect("/customers");
   } catch (error) {
     console.log(error);
   }
