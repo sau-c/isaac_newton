@@ -51,10 +51,7 @@ app.set('view engine', 'ejs');
 app.set('layout', './layouts/main');
 
 // Routes
-app.use('/', require('./server/routes/auth')); // Add auth routes
 app.use('/', require('./server/routes/customer'))
-
-
 
 
 // Handle 404
